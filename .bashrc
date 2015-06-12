@@ -77,7 +77,7 @@ export PS1="$BGreen\u@\h$Color_Off:$BBlue[\w]$Color_Off $BCyan<\t>$Color_Off\$ "
 #export PS1="$BRed\u@\h$Color_Off:$BBlue[\w]$Color_Off $BCyan<\t>$Color_Off\$ "
 
 # for tracing shell scripts with `set -x`
-export PS4="$BYellow$0:$LINENO$Color_Off "
+export PS4='\e[1;33m$0:\#\e[0m '
 
 ## Aliases
 alias ls='ls --color=auto'
