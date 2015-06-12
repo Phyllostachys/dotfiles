@@ -1,4 +1,6 @@
 export PS1='\[\e[01;32m\]\u@\h\[\e[m\]:\[\e[01;34m\][\w]\[\e[m\] \[\e[1;36m\]<\t>\[\e[m\]\$ '
+# if root
+#export PS1='\[\e[01;31m\]\u@\h\[\e[m\]:\[\e[01;34m\][\w]\[\e[m\] \[\e[1;36m\]<\t>\[\e[m\]\$ '
 
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
