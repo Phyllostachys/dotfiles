@@ -72,7 +72,7 @@ On_IPurple='\e[0;105m'  # Purple
 On_ICyan='\e[0;106m'    # Cyan
 On_IWhite='\e[0;107m'   # White
 
-export PS1="$BGreen\u@\h$Color_Off:$BBlue[\w]$Color_Off $BCyan<\t>$Color_Off\$ "
+export PS1="\[$BGreen\]\u@\h\[$Color_Off\]:\[$BBlue\][\w]\[$Color_Off\] \[$BCyan\]<\t>\[$Color_Off\]\$ "
 # if root
 #export PS1="$BRed\u@\h$Color_Off:$BBlue[\w]$Color_Off $BCyan<\t>$Color_Off\$ "
 
