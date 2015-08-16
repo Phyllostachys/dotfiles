@@ -1,1 +1,30 @@
--A10SNYpHUk1W3tnQz1
+## bracket style options
+--style=1tbs
+
+## tab options
+--indent=spaces
+# --indent=tab
+
+## bracket modify options
+--attach-extern-c
+
+## indentation options
+#--indent-classes
+--indent-switches
+--indent-namespaces
+--indent-col1-comments
+
+## padding options
+--pad-oper
+--pad-header
+--unpad-paren
+--align-pointer=type
+--align-reference=name
+
+## formatting options
+--convert-tabs    # converts all non-indent tabs to spaces
+
+## other options
+--suffix=none
+--formatted
+
