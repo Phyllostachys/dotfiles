@@ -90,6 +90,7 @@ alias la='ls -A'
 alias l='ls -CF'
 
 alias fcode='astyle -A10SNYpHUk1W3tnQz1'
+alias pycalc='python3 -ic "from sympy import init_session; init_session()"'
 
 function arm-linux-gnueabi-ldd
 {
