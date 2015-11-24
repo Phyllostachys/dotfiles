@@ -10,6 +10,7 @@
 #   editor.onDidSave ->
 #     console.log "Saved! #{editor.getPath()}"
 
+# close all tabs when opening atom
 process.nextTick ->
   atom.workspace.getPaneItems().forEach ->
     atom.workspace.destroyActivePaneItem()
