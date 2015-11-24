@@ -1,0 +1,21 @@
+"*":
+  "exception-reporting":
+    userId: "d80d9d6b-216a-82db-254b-ac3ae72e1925"
+  welcome:
+    showOnStartup: false
+  core:
+    disabledPackages: [
+      "Sublime-Style-Column-Selection"
+      "sublime-panes"
+    ]
+  editor:
+    invisibles: {}
+    scrollPastEnd: true
+    showIndentGuide: true
+  "highlight-selected": {}
+  minimap:
+    plugins:
+      "highlight-selected": true
+  tabs: {}
+  docblockr: {}
+  "smart-tab-name": {}
