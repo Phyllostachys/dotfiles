@@ -7,11 +7,14 @@
     disabledPackages: [
       "Sublime-Style-Column-Selection"
       "sublime-panes"
+      "guess-indent"
     ]
   editor:
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
+    tabLength: 4
+    showInvisibles: true
   "highlight-selected": {}
   minimap:
     plugins:
