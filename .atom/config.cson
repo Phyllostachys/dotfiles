@@ -3,12 +3,7 @@
     userId: "d80d9d6b-216a-82db-254b-ac3ae72e1925"
   welcome:
     showOnStartup: false
-  core:
-    disabledPackages: [
-      "Sublime-Style-Column-Selection"
-      "sublime-panes"
-      "guess-indent"
-    ]
+  core: {}
   editor:
     invisibles: {}
     scrollPastEnd: true
@@ -22,3 +17,6 @@
   tabs: {}
   docblockr: {}
   "smart-tab-name": {}
+  "you-complete-me": {}
+  "autocomplete-plus": {}
+  "autocomplete-clang": {}
