@@ -3,13 +3,17 @@
     userId: "d80d9d6b-216a-82db-254b-ac3ae72e1925"
   welcome:
     showOnStartup: false
-  core: {}
+  core:
+    disabledPackages: [
+      "symbols-view"
+      "linter-clang"
+    ]
   editor:
     invisibles: {}
     scrollPastEnd: true
     showIndentGuide: true
-    tabLength: 4
     showInvisibles: true
+    tabLength: 4
   "highlight-selected": {}
   minimap:
     plugins:
@@ -20,3 +24,13 @@
   "you-complete-me": {}
   "autocomplete-plus": {}
   "autocomplete-clang": {}
+  "new-tab":
+    position: "Left"
+  whitespace:
+    ignoreWhitespaceOnCurrentLine: false
+  "ctags-status":
+    outerScope: true
+  "atom-ctags": {}
+  "glsl-preview": {}
+  linter: {}
+  "linter-clang": {}
