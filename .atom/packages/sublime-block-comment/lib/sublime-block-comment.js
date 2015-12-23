@@ -1,5 +1,7 @@
 'use babel';
 
+import { Point, Range } from 'atom';
+
 import core from 'core-js/library';
 const { find } = core.Array.prototype;
 
@@ -16,6 +18,15 @@ const langs = [
   Lang(/^text\.html\.?/ , '<!--', '-->'),
 ];
 
+export const config = {
+  pad: {
+    title: 'Pad with spaces',
+    description: 'Pad selection with whitespace when commenting.',
+    type: 'boolean',
+    default: false,
+  },
+};
+
 export function activate() {
   disposables.push(atom.commands.add('atom-text-editor:not([mini])', { 'sublime-block-comment:toggle': toggle }));
 }
@@ -30,6 +41,7 @@ function toggle() {
   if (!editor) return;
 
   const buffer = editor.getBuffer();
+  const padding = atom.config.get('sublime-block-comment.pad') ? ' ' : '';
 
   buffer.transact(() => {
     for (const selection of editor.getSelectionsOrderedByBufferPosition().reverse()) {
@@ -57,7 +69,7 @@ function toggle() {
             column++
           ) {
             if (isCommentDefinitionPunctuation([row, column])) {
-              blockCommentCloseRange = [[row, column], [row, column + commentTokens.close.length]];
+              blockCommentCloseRange = new Range([row, column], [row, column + commentTokens.close.length]);
               break;
             }
           }
@@ -69,8 +81,8 @@ function toggle() {
           for (
             let column = row === range.start.row
               ? (
-                blockCommentCloseRange && row === blockCommentCloseRange[0][0]
-                  ? blockCommentCloseRange[0][1]
+                blockCommentCloseRange && row === blockCommentCloseRange.start.row
+                  ? blockCommentCloseRange.start.column
                   : Math.min(range.start.column + commentTokens.open.length, line.length)
               )
               : line.length;
@@ -78,24 +90,49 @@ function toggle() {
             column--
           ) {
             if (isCommentDefinitionPunctuation([row, column])) {
-              blockCommentOpenRange = [[row, column], [row, column + commentTokens.open.length]];
+              blockCommentOpenRange = new Range([row, column], [row, column + commentTokens.open.length]);
               break;
             }
           }
         }
 
-        if (blockCommentCloseRange) buffer.delete(blockCommentCloseRange);
-        if (blockCommentOpenRange) buffer.delete(blockCommentOpenRange);
+        if (blockCommentCloseRange) {
+          if (padding) {
+            const blockCommentClosePaddedRangeStart = new Point(blockCommentCloseRange.start.row, blockCommentCloseRange.start.column - padding.length);
+            if (
+              (!blockCommentOpenRange || blockCommentClosePaddedRangeStart.compare(blockCommentOpenRange.end) >= 0)
+              && buffer.getTextInRange([blockCommentClosePaddedRangeStart, blockCommentCloseRange.start]) === padding
+            ) {
+              blockCommentCloseRange.start = blockCommentClosePaddedRangeStart;
+            }
+          }
+          buffer.delete(blockCommentCloseRange);
+        }
+
+        if (blockCommentOpenRange) {
+          if (padding) {
+            const blockCommentOpenPaddedRangeEnd = new Point(blockCommentOpenRange.end.row, blockCommentOpenRange.end.column + padding.length);
+            if (
+              // This sanity check also prevents excessively removing "overlapping" start/end padding.
+              // E.g.: "/* */ a" => " a" instead of "a"
+              (!blockCommentCloseRange || blockCommentOpenPaddedRangeEnd.compare(blockCommentCloseRange.start) <= 0)
+              && buffer.getTextInRange([blockCommentOpenRange.end, blockCommentOpenPaddedRangeEnd]) === padding
+            ) {
+              blockCommentOpenRange.end = blockCommentOpenPaddedRangeEnd;
+            }
+          }
+          buffer.delete(blockCommentOpenRange);
+        }
 
         continue;
       }
 
       // Else, wrap selection with block comment.
-      buffer.insert(range.end, commentTokens.close);
-      buffer.insert(range.start, commentTokens.open);
+      buffer.insert(range.end, padding + commentTokens.close);
+      buffer.insert(range.start, commentTokens.open + padding);
 
       // Unselect the opening and closing comment tokens.
-      const startRowColumnOffset = commentTokens.open.length;
+      const startRowColumnOffset = commentTokens.open.length + padding.length;
       selection.setBufferRange([
         [range.start.row, range.start.column + startRowColumnOffset],
         [range.end.row, range.end.column + (range.start.row === range.end.row ? startRowColumnOffset : 0)]

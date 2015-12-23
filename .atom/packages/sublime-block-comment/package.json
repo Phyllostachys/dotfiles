@@ -1,7 +1,7 @@
 {
   "name": "sublime-block-comment",
   "main": "./lib/sublime-block-comment",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Toggle block comments like in Sublime Text.",
   "keywords": [
     "block",
@@ -27,16 +27,16 @@
   "dependencies": {
     "core-js": "^1.2.0"
   },
-  "readme": "# Sublime Block Comments for Atom\n\nAn Atom Editor plugin for toggling block comments, inspired by Sublime Text.\n\n# Install\n\n```\napm install sublime-block-comment\n```\n\nOr look for `sublime-block-comment` in your Atom settings' Install tab. :smiley:\n\n# Features\n\n- Select code and hit the keybinding to place a block comment around it.\n- Place the cursor anywhere inside a block comment and hit the keybinding to uncomment it.\n- Hit the keybinding with an empty selection to create an empty block comment, ready to type.\n- Supports multiple cursors.\n\n# Keymap\n\n- `Ctrl-?` (`Ctrl-Shift-;` for ABNT2 keyboards on Windows/Linux): Toggle block comments.\n\n# Contributing\n\nContributions are very welcome!\n\nPlease report any issue you find, and feel free to send pull requests to add support for more languages. :smiley:\n",
+  "readme": "# Sublime Block Comments for Atom\n\nAn Atom Editor plugin for toggling block comments, inspired by Sublime Text.\n\n# Install\n\n```\napm install sublime-block-comment\n```\n\nOr look for `sublime-block-comment` in your Atom settings' Install tab. :smiley:\n\n# Features\n\n- Select code and hit the keybinding to place a block comment around it.\n- Place the cursor anywhere inside a block comment and hit the keybinding to uncomment it.\n- Hit the keybinding with an empty selection to create an empty block comment, ready to type.\n- Optionally pad the selection with whitespace when commenting (you can enable this in the package settings).\n- Supports multiple cursors.\n\n# Keymap\n\n- `Ctrl-?` (`Ctrl-Shift-;` for ABNT2 keyboards on Windows/Linux): Toggle block comments.\n\n# Contributing\n\nContributions are very welcome!\n\nPlease report any issue you find, and feel free to send pull requests to add support for more languages. :smiley:\n",
   "readmeFilename": "README.md",
   "bugs": {
     "url": "https://github.com/UltCombo/atom-sublime-block-comment/issues"
   },
   "homepage": "https://github.com/UltCombo/atom-sublime-block-comment#readme",
-  "_id": "sublime-block-comment@0.3.1",
-  "_shasum": "d7c51addccd3086dc14f83fb098246d04cf6029e",
-  "_resolved": "file:../d-1151025-12147-a8xgbh/package.tgz",
-  "_from": "../d-1151025-12147-a8xgbh/package.tgz",
+  "_id": "sublime-block-comment@0.4.0",
+  "_shasum": "3e2a9ec9ef87d345f2f2346ad5d94b502d293acc",
+  "_resolved": "file:../d-1151121-53198-ura16i/package.tgz",
+  "_from": "../d-1151121-53198-ura16i/package.tgz",
   "_atomModuleCache": {
     "version": 1,
     "dependencies": [

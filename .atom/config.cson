@@ -34,3 +34,5 @@
   "glsl-preview": {}
   linter: {}
   "linter-clang": {}
+  "linter-rust":
+    cargoCommand: "check"
