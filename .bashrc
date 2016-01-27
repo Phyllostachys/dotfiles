@@ -96,3 +96,8 @@ function arm-linux-gnueabi-ldd
 {
     arm-linux-gnueabi-readelf -d $1 | grep -A 10 "Shared Library:"
 }
+
+function set_date
+{
+    sudo date -s "$(curl -s --head $(shuf -n 1 .http-time-sources) | grep ^Date: | sed 's/Date: //g')"
+}
