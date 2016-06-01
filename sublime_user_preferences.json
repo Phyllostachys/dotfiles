@@ -1,13 +1,15 @@
 {
 	"always_show_minimap_viewport": true,
 	"ensure_newline_at_eof_on_save": true,
-	//"font_face": "Source Code Pro",
-	//"font_size": 9,
-	"rulers": [80],
+	"font_size": 9,
 	"highlight_line": true,
-	"hot_exit": false,
-	"remember_open_files": false,
+	"rulers":
+	[
+		80,
+		120
+	],
 	"spell_check": true,
 	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true
+	"trim_trailing_white_space_on_save": true,
+	"hot_exit": false
 }
