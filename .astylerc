@@ -1,9 +1,11 @@
 ## bracket style options
+#--style=attach
+#--style=break
 --style=1tbs
 
 ## tab options
-#--indent=spaces
---indent=tab
+--indent=spaces
+#--indent=tab
 
 ## bracket modify options
 #--attach-extern-c
@@ -18,11 +20,11 @@
 --pad-oper
 --pad-header
 --unpad-paren
---align-pointer=type
---align-reference=type
+--align-pointer=name
+--align-reference=name
 
 ## formatting options
---add-one-line-brackets # implies --keep-one-line-blocks
+#--add-one-line-brackets # implies --keep-one-line-blocks
 
 ## other options
 --suffix=none
