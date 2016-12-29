@@ -80,7 +80,7 @@ export PS1="\[$BGreen\]\u@\h\[$Color_Off\]:\[$BBlue\][\w]\[$Color_Off\] \[$BCyan
 export PS4='\e[1;33m$0:\#\e[0m '
 
 ## Aliases
-alias ls='/bin/ls --group-directories-first -vhx --color=auto' ##alias ls='ls --color=auto'
+alias ls='/bin/ls --group-directories-first -vh --color=auto' ##alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
