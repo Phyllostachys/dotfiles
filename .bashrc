@@ -91,6 +91,8 @@ alias l='ls -CF'
 
 alias fcode='astyle -A10tSNYpHUk1W1JnQz2'
 alias pycalc='python3 -ic "from sympy import init_session; init_session()"'
+# fix a termianal after cat'ing a binary file, from https://unix.stackexchange.com/questions/79684/fix-terminal-after-displaying-a-binary-file
+alias fix='reset; stty sane; tput rs1; clear; echo -e "\033c"'
 
 function arm-linux-gnueabi-ldd
 {
