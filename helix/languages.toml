@@ -1,0 +1,28 @@
+################################################################################
+## Python
+
+[[language]]
+name = "python"
+scope = "source.python"
+auto-format = true
+language-servers = [
+  {name = "ruff", only-features = ["format"]},
+  "astral-ty",
+]
+
+[language-server.astral-ty]
+command = "ty"
+args= ["server"]
+
+################################################################################
+## Rust
+
+[[language]]
+name = "rust"
+language-servers = ["rust-analyzer" ]
+formatter = { command = "rustfmt" }
+auto-format = true
+indent = { tab-width = 4, unit = "s" }
+
+[language-server.rust-analyzer]
+command = "rust-analyzer"
